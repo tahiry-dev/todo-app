@@ -1,6 +1,10 @@
 body {
-    background-color: gray;
+    background-color: rgb(76, 82, 99);
   }
+  #wrapper {
+   margin-top: 50px;
+  }
+
   .btn-sm {
     width: 40%;
     margin: auto;
