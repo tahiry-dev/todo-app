@@ -22,3 +22,6 @@ body {
     font-size: 1.25em;
     color: aliceblue;
   }
+  .required {
+    border: 5px solid red;
+  }
