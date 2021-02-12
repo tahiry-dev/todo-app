@@ -16,13 +16,14 @@ export default function basic() {
                 </div>
             </div>
             <div class="card tasks col-12 col-md-8">
+              <div id = "task-list">
                 <div class="card-header title">
                     Category Name
                 </div>
                 <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Create Tasks
                 </button>
-
+              </div>
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
@@ -47,7 +48,7 @@ export default function basic() {
                                         <label for="date" class="form-label">Due Date</label>
                                         <input type="date" class="form-control" id="date">
                                     </div>
-                                    <select class="form-select" aria-label="Default select example">
+                                    <select id="priority" class="form-select" aria-label="Default select example ">
                                         <option selected>Choose your priority</option>
                                         <option value="normal">Normal</option>
                                         <option value="urgent">Urgent</option>
@@ -55,8 +56,8 @@ export default function basic() {
                                 </form>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-success">Save changes</button>
+                                <button type="button" id = "close" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" id = "save"  class="btn btn-success">Save changes</button>
                             </div>
                         </div>
                     </div>
