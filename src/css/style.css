@@ -1,28 +1,94 @@
-body {
-    background-color: rgb(76, 82, 99);
-  }
-  #wrapper {
-   margin-top: 50px;
-  }
+*, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-  .btn-sm {
-    width: 40%;
-    margin-left: 28%;
-    margin-top: 15px;
-    height: 50px;
-    font-size: 1.25em;
-    color: aliceblue;
-  }
-  
-  .tasks {
-    margin: 0;
-    padding: 0;
-  }
-  
-  .new-project-btn {
-    font-size: 1.25em;
-    color: aliceblue;
-  }
-  .required {
-    border: 5px solid red;
-  }
+body {
+  background: #333;
+  color: #f1f1f1;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#wrapper{
+  margin-top: 5%;
+}
+
+h1 {
+  text-align: center;
+  font-size: 5vw;
+  margin: 50px 0;
+}
+
+form {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+}
+form label {
+  display: block;
+  font-size: 25px;
+}
+form input, form select {
+  width: 100%;
+  padding: 15px;
+  font-size: 20px;
+  margin: 10px 0;
+}
+form button {
+  margin-top: 35%;
+  padding: 15px;
+  font-size: 20px;
+}
+
+.left {
+display: flex;
+}
+
+button[name='category']{
+  margin-top: 56%;
+}
+
+.liste-todo {
+  list-style-type: none;
+  margin: 20px auto 0;
+  width: 70%;
+  max-width: 1200px;
+  min-width: 400px;
+}
+
+li {
+  font-size: 20px;
+  width: 100%;
+  background: #f1f1f1;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  color: #333;
+  margin: 5px 0;
+}
+
+li input {
+  width: 40px;
+  height: 40px;
+  margin-left: 15px;
+}
+
+li button {
+  margin-left: auto;
+  padding: 5px;
+}
+
+button img {
+  width: 40px;
+  pointer-events: none;
+}
+
+li span {
+  font-size: 25px;
+  margin-left: 20px;
+}
+/* anim rayure */
+li.finDeTache span {
+  text-decoration: line-through;
+}

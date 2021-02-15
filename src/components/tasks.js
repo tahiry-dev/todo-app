@@ -10,6 +10,7 @@ export default class Tasks {
 
     create() {
         const task_object = {
+            category: localStorage.setItem("category", this.category),
             title: localStorage.setItem("title", this.title),
             description: localStorage.setItem("description", this.description),
             date: localStorage.setItem("date", this.date),
@@ -18,8 +19,8 @@ export default class Tasks {
 
     }
 
-    delete(task) {
-        localStorage.removeItem(task);
-    }
+    // delete(task) {
+    //     localStorage.removeItem(task);
+    // }
 
 }   
