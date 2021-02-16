@@ -14,8 +14,7 @@ const basicPage = () => {
 
 document.getElementById('wrapper').appendChild(basicPage());
 
-
-let category = document.getElementById('category-button');
+let category = document.getElementById('category');
 let title = document.getElementById('title');
 let description = document.getElementById('description');
 let dueDate = document.getElementById('deadline');
@@ -25,9 +24,18 @@ const submit_button = document.getElementById('submit-button');
 
 submit_button.addEventListener('click', (e) => {
     e.preventDefault();
-    let instanciation = new Tasks(category.value, title.value, description.value, dueDate.value, priority.value);
-    instanciation.create();
+    if (category.value === '') {
+        category.className = 'required';
+        category.setAttribute('placeholder', 'This field is required');
+        setTimeout(() => {
+            category.removeAttribute('class');
+            category.setAttribute('placeholder', 'Category Name');
+        }, 1500)
 
+        return
+    }
+    let instantiation = new Tasks(category.value, title.value, description.value, dueDate.value, priority.value);
+    instantiation.create();
 })
 
 

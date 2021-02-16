@@ -6,7 +6,7 @@ export default function basic() {
                 <div class="left">
                     <p>
                         <label for="category">Task Category</label>
-                        <input type="text" id="category" placeholder="Category Name">
+                        <input type="text" id="category" placeholder="Category Name" required minlength=6>
                     </p>
                     <p><button type="submit" id="category-button" >Add</button>
                 </div>
