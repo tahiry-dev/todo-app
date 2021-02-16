@@ -50,13 +50,25 @@ position: relative;
   margin-top: 56%;
 }
 
-button[name='cat-btn']{
-  background-color: #e8f0fe;
-  border-radius: 5px;
+.cat-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cat-container p {
+  cursor: pointer;
+  width: 100%;
+  padding: 10px;
 }
 
 .required::placeholder {
   color: red;
+}
+
+input[type="radio"]{
+  width: 15px;
 }
 
 .category-container {

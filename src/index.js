@@ -21,8 +21,11 @@ let description = document.getElementById('description');
 let dueDate = document.getElementById('deadline');
 let priority = document.getElementById('priority');
 
+
 const submit_button = document.getElementById('submit-button');
 const add_button = document.getElementById('category-button');
+
+
 
 submit_button.addEventListener('click', (e) => {
     e.preventDefault();
@@ -33,13 +36,17 @@ submit_button.addEventListener('click', (e) => {
 
 add_button.addEventListener('click', (e) => {
     e.preventDefault();
-    checkInput()
+    checkInput();
     let categoryElements = document.createElement('li');
     if (category.value !== '') {
-        categoryElements.innerHTML = `${category.value} <button type="button" name='cat-btn'>Choose</button>`;
+        categoryElements.innerHTML = `
+            <div class="cat-container">
+                <p>${category.value}</p>
+                <p><input type="radio" name="cat" value="${category.value}" </p>
+            </div>
+            `
         document.querySelector('.list-of-category').appendChild(categoryElements);
+        category.value = ' ';
     }
 
 })
-
-
