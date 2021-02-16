@@ -15,28 +15,21 @@ const basicPage = () => {
 document.getElementById('wrapper').appendChild(basicPage());
 
 
-let category;
-let instanciation;
+let category = document.getElementById('category-button');
+let title = document.getElementById('title');
+let description = document.getElementById('description');
+let dueDate = document.getElementById('deadline');
+let priority = document.getElementById('priority');
 
-let title = document.getElementById('title').value;
-let description = document.getElementById('description').value;
-let dueDate = document.getElementById('deadline').value;
-let priority = document.getElementById('priority').value;
+const submit_button = document.getElementById('submit-button');
 
-const btns = document.querySelectorAll('button');
-
-btns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        let clickedButton = e.target.getAttribute('name');
-        if (clickedButton === 'category') {
-            category = document.getElementById('category').value;
-            document.getElementById('category').value = '';
-            console.log(category);
-        } else if (clickedButton === 'data') {
-            instanciation = new Tasks(category, title, description, dueDate, priority);
-        }
-    })
+submit_button.addEventListener('click', (e) => {
+    e.preventDefault();
+    let instanciation = new Tasks(category.value, title.value, description.value, dueDate.value, priority.value);
+    instanciation.create();
 
 })
+
+
+
 

@@ -8,7 +8,7 @@ export default function basic() {
                         <label for="category">Task Category</label>
                         <input type="text" id="category" placeholder="Category Name">
                     </p>
-                    <p><button type="submit" name="category" >Add</button>
+                    <p><button type="submit" id="category-button" >Add</button>
                 </div>
                 <div class="center">
                     <label for="title">Tasks</label>
@@ -24,7 +24,7 @@ export default function basic() {
                     </select>
                 </div>
                 <div class="right">
-                    <button type="submit" name = "data" >Submit</button>
+                    <button type="submit" id = "submit-button" >Submit</button>
                 </div>
             </form>
 

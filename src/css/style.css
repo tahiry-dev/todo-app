@@ -45,7 +45,7 @@ form button {
 display: flex;
 }
 
-button[name='category']{
+#category-button{
   margin-top: 56%;
 }
 
