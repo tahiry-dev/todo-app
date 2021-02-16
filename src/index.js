@@ -1,6 +1,7 @@
 import './css/style.css';
 import basic from './components/basic';
 import Tasks from './components/tasks';
+import checkInput from './components/check';
 
 
 
@@ -21,23 +22,24 @@ let dueDate = document.getElementById('deadline');
 let priority = document.getElementById('priority');
 
 const submit_button = document.getElementById('submit-button');
+const add_button = document.getElementById('category-button');
 
 submit_button.addEventListener('click', (e) => {
     e.preventDefault();
-    if (category.value === '') {
-        category.className = 'required';
-        category.setAttribute('placeholder', 'This field is required');
-        setTimeout(() => {
-            category.removeAttribute('class');
-            category.setAttribute('placeholder', 'Category Name');
-        }, 1500)
-
-        return
-    }
+    checkInput();
     let instantiation = new Tasks(category.value, title.value, description.value, dueDate.value, priority.value);
     instantiation.create();
 })
 
+add_button.addEventListener('click', (e) => {
+    e.preventDefault();
+    checkInput()
+    let categoryElements = document.createElement('li');
+    if (category.value !== '') {
+        categoryElements.innerHTML = `${category.value} <button type="button" name='cat-btn'>Choose</button>`;
+        document.querySelector('.list-of-category').appendChild(categoryElements);
+    }
 
+})
 
 

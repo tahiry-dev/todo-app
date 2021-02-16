@@ -3,12 +3,13 @@ export default function basic() {
     container.className = 'container';
     container.innerHTML = `
             <form>
-                <div class="left">
+                <div class="left" id= "left">
                     <p>
                         <label for="category">Task Category</label>
-                        <input type="text" id="category" placeholder="Category Name" required minlength=6>
+                        <input type="text" id="category" placeholder="Category Name">
                     </p>
-                    <p><button type="submit" id="category-button" >Add</button>
+                    <p><button type="submit" id="category-button" >Add</button></p>
+                    
                 </div>
                 <div class="center">
                     <label for="title">Tasks</label>
@@ -27,11 +28,15 @@ export default function basic() {
                     <button type="submit" id = "submit-button" >Submit</button>
                 </div>
             </form>
-
+            <div class="category-container">
+                <ul class="list-of-category"
+                </ul>
+            </div>
+            
             <ul class="liste-todo">
             
             </ul>
-        
-  `
+
+        `
     return container
 }

@@ -43,14 +43,31 @@ form button {
 
 .left {
 display: flex;
+position: relative;
 }
 
 #category-button{
   margin-top: 56%;
 }
 
+button[name='cat-btn']{
+  background-color: #e8f0fe;
+  border-radius: 5px;
+}
+
 .required::placeholder {
   color: red;
+}
+
+.category-container {
+  display: block;
+  position: absolute;
+  width: 24.5%;
+  border: 1px solid beige;
+  background-color: #efefef;
+  height: 46.5vh;
+  top: 200px;
+  left: 115px;
 }
 
 .liste-todo {
