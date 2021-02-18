@@ -40,13 +40,16 @@ leftBtn.addEventListener('click', (e) => {
     displayCategory(category);
 
     function displayCategory(category) {
+
         const item = document.createElement('li');
         item.setAttribute('data-key', category.id);
 
         const input = document.createElement('input');
         input.setAttribute('type', 'radio');
+        input.setAttribute('name', 'radioValue');
+        input.setAttribute('value', `${category.name}`);
         input.className = 'radio';
-        // inputResult.addEventListener('click', tacheFaite);
+
         item.appendChild(input)
 
         const name = document.createElement('span');
@@ -64,9 +67,9 @@ leftBtn.addEventListener('click', (e) => {
     }
 
     const deleteName = document.querySelectorAll('.close-btn');
-    deleteName.forEach(item => {
-        item.parentNode.addEventListener('click', deleteItem);
-    })
+    for (let i = 0; i < deleteName.length; i++) {
+        deleteName[i].addEventListener('click', deleteItem)
+    }
 
     function deleteItem(e) {
         listOfCategory.forEach(el => {
@@ -77,3 +80,4 @@ leftBtn.addEventListener('click', (e) => {
         })
     }
 })
+

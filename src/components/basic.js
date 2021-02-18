@@ -30,7 +30,10 @@ export default function basic() {
             </form>
             <div class="category-container">
                 <ul class="list-of-category">
-
+                    <li>
+                        <input type="radio" name="radioValue" value="default" class="radio" checked>
+                        <span>Default Category</span>
+                    </li>
                 </ul>
             </div>
             
