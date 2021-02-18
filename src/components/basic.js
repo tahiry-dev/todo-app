@@ -29,7 +29,8 @@ export default function basic() {
                 </div>
             </form>
             <div class="category-container">
-                <ul class="list-of-category"
+                <ul class="list-of-category">
+
                 </ul>
             </div>
             

@@ -25,6 +25,7 @@ form {
   justify-content: space-around;
   margin: 0 auto;
 }
+
 form label {
   display: block;
   font-size: 25px;
@@ -50,25 +51,19 @@ position: relative;
   margin-top: 56%;
 }
 
-.cat-container {
-  display: flex;
+.list-of-category {
   width: 100%;
-  justify-content: space-between;
-  align-items: center;
 }
 
-.cat-container p {
+.list-of-category li {
   cursor: pointer;
   width: 100%;
   padding: 10px;
+  
 }
 
 .required::placeholder {
   color: red;
-}
-
-input[type="radio"]{
-  width: 15px;
 }
 
 .category-container {
@@ -80,6 +75,14 @@ input[type="radio"]{
   height: 46.5vh;
   top: 200px;
   left: 115px;
+}
+
+.radio {
+  width: 15px;
+}
+
+.close-btn {
+  background-color: red;
 }
 
 .liste-todo {
