@@ -18,9 +18,4 @@ export default class Tasks {
         }
 
     }
-
-    // delete(task) {
-    //     localStorage.removeItem(task);
-    // }
-
 }   
