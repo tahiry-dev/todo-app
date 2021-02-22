@@ -1,6 +1,7 @@
 import './css/style.css';
 import basic from './components/basic';
 import deleteItem from './components/delete';
+import checkInput from './components/check';
 
 
 const basicPage = () => {
@@ -16,17 +17,15 @@ document.getElementById('wrapper').appendChild(basicPage());
 let addCategory = document.getElementsByTagName('button')[0];
 let category = document.getElementsByTagName('input')[0];
 let categoryList = document.getElementById('category-list');
+let taskBtn = document.getElementsByTagName('button')[1];
+let taskTitle = document.getElementById('title');
+let categoryInput;
 
 
 addCategory.addEventListener('click', (e) => {
     e.preventDefault();
     if (category.value === '') {
-        category.setAttribute('placeholder', 'This field is required');
-        category.classList.add('required');
-        setTimeout(() => {
-            category.setAttribute('placeholder', 'category-name');
-            category.removeAttribute('class');
-        }, 1500)
+        checkInput(category, 'category-name');
         return
     }
 
@@ -37,8 +36,10 @@ addCategory.addEventListener('click', (e) => {
     list.innerText = category.value;
 
     let radioBtn = document.createElement('input');
+    radioBtn.setAttribute('class', 'myRadio');
     radioBtn.setAttribute('type', 'radio');
     radioBtn.setAttribute('name', 'category');
+    radioBtn.setAttribute('value', `${category.value}`);
     radioBtn.setAttribute('checked', '');
 
     let closeBtn = document.createElement('p');
@@ -52,6 +53,24 @@ addCategory.addEventListener('click', (e) => {
 
     category.value = '';
 
-    closeBtn.addEventListener('click', deleteItem)
-
+    closeBtn.addEventListener('click', deleteItem);
 });
+
+taskBtn.addEventListener('click', (e) => {
+
+    e.preventDefault();
+    if (taskTitle.value === '') {
+        checkInput(taskTitle, 'your title');
+        return
+    }
+
+    let allRadio = document.getElementsByName('category');
+    allRadio.forEach(radio => {
+        if (radio.checked) {
+            categoryInput = radio.value;
+        }
+    });
+})
+
+
+

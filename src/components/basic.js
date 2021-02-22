@@ -12,7 +12,7 @@ export default function basic() {
                     <div id="category-list">
                         <div class="category-list-name">
                             <p>Default category</p>
-                            <p><input type="radio" name="category" checked></p>
+                            <p><input type="radio" name="category" class="myRadio" checked value="default"></p>
                         </div>
                     </div>
                 </div>
@@ -38,7 +38,6 @@ export default function basic() {
                     </form>
                 </div>
             </div>
-
         `
     return container
 }
