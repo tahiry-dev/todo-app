@@ -1,5 +1,6 @@
 import './css/style.css';
 import basic from './components/basic';
+import deleteItem from './components/delete';
 
 
 const basicPage = () => {
@@ -29,16 +30,28 @@ addCategory.addEventListener('click', (e) => {
         return
     }
 
-    let list = document.createElement('div');
-    list.className = 'category-list-name';
-    list.innerHTML = `
-        <p>${category.value}</p>
-        <p><input type="radio" name="category" checked></p>
-        <p class="delete" >X</p>
-        
-    `
+    let listContainer = document.createElement('div');
+    listContainer.className = 'category-list-name';
 
-    categoryList.appendChild(list);
+    let list = document.createElement('p');
+    list.innerText = category.value;
+
+    let radioBtn = document.createElement('input');
+    radioBtn.setAttribute('type', 'radio');
+    radioBtn.setAttribute('name', 'category');
+    radioBtn.setAttribute('checked', '');
+
+    let closeBtn = document.createElement('p');
+    closeBtn.className = 'delete-button';
+    closeBtn.innerText = 'X';
+
+    listContainer.appendChild(list);
+    listContainer.appendChild(radioBtn);
+    listContainer.appendChild(closeBtn);
+    categoryList.appendChild(listContainer);
 
     category.value = '';
+
+    closeBtn.addEventListener('click', deleteItem)
+
 });

@@ -33,7 +33,7 @@ input, select, textarea, button {
 .delete-button {
   background-color: red;
   height: 20px;
-  width: 20px;
+  width: 15px;
   cursor: pointer;
  
 }
@@ -41,12 +41,6 @@ input, select, textarea, button {
 .category-list-name {
   display: flex;
   justify-content: space-between;
-}
-
-.delete {
-  background-color: red;
-  height: 10%;
-  cursor: pointer;
 }
 
 p {
