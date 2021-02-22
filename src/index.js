@@ -1,7 +1,6 @@
 import './css/style.css';
 import basic from './components/basic';
-// import Tasks from './components/tasks';
-import getName from './components/getCategoryName';
+
 
 const basicPage = () => {
     const parent = document.createElement('div');
@@ -13,71 +12,33 @@ const basicPage = () => {
 
 document.getElementById('wrapper').appendChild(basicPage());
 
-const leftBtn = document.getElementById('category-button')
-const categoryInpt = document.getElementById('category');
-const showCategory = document.querySelector('.list-of-category')
-let listOfCategory = [];
+let addCategory = document.getElementsByTagName('button')[0];
+let category = document.getElementsByTagName('input')[0];
+let categoryList = document.getElementById('category-list');
 
-leftBtn.addEventListener('click', (e) => {
 
+addCategory.addEventListener('click', (e) => {
     e.preventDefault();
-
-    if (categoryInpt.value === '') {
-        categoryInpt.className = 'required';
-        categoryInpt.setAttribute('placeholder', 'This field is required');
+    if (category.value === '') {
+        category.setAttribute('placeholder', 'This field is required');
+        category.classList.add('required');
         setTimeout(() => {
-            categoryInpt.removeAttribute('class');
-            categoryInpt.setAttribute('placeholder', 'Category Name');
+            category.setAttribute('placeholder', 'category-name');
+            category.removeAttribute('class');
         }, 1500)
-
         return
     }
 
-    let category = getName(categoryInpt.value);
+    let list = document.createElement('div');
+    list.className = 'category-list-name';
+    list.innerHTML = `
+        <p>${category.value}</p>
+        <p><input type="radio" name="category" checked></p>
+        <p class="delete" >X</p>
+        
+    `
 
-    categoryInpt.value = '';
+    categoryList.appendChild(list);
 
-    displayCategory(category);
-
-    function displayCategory(category) {
-
-        const item = document.createElement('li');
-        item.setAttribute('data-key', category.id);
-
-        const input = document.createElement('input');
-        input.setAttribute('type', 'radio');
-        input.setAttribute('name', 'radioValue');
-        input.setAttribute('value', `${category.name}`);
-        input.className = 'radio';
-
-        item.appendChild(input)
-
-        const name = document.createElement('span');
-        name.innerText = category.name;
-        item.appendChild(name);
-
-        const deleteBtn = document.createElement('button');
-        deleteBtn.setAttribute('class', 'close-btn');
-        deleteBtn.innerText = 'X';
-
-        item.appendChild(deleteBtn);
-
-        showCategory.appendChild(item);
-        listOfCategory.push(item);
-    }
-
-    const deleteName = document.querySelectorAll('.close-btn');
-    for (let i = 0; i < deleteName.length; i++) {
-        deleteName[i].addEventListener('click', deleteItem)
-    }
-
-    function deleteItem(e) {
-        listOfCategory.forEach(el => {
-            if (e.target.parentNode.getAttribute('data-key') === el.getAttribute('data-key')) {
-                el.remove();
-                listOfCategory = listOfCategory.filter(li => li.dataset.key !== el.dataset.key);
-            }
-        })
-    }
-})
-
+    category.value = '';
+});

@@ -2,44 +2,42 @@ export default function basic() {
     const container = document.createElement('div');
     container.className = 'container';
     container.innerHTML = `
-            <form>
-                <div class="left" id= "left">
-                    <p>
-                        <label for="category">Task Category</label>
-                        <input type="text" id="category" placeholder="Category Name">
-                    </p>
-                    <p><button type="submit" id="category-button" >Add</button></p>
-                    
+            <h1>TODO APP</h1>
+            <div class="container-fluid">
+                <div class="category">
+                    <form id="category">
+                        <input type="text" placeholder="category-name">
+                        <button type="submit">Add</button>
+                    </form>
+                    <div id="category-list">
+                        <div class="category-list-name">
+                            <p>Default category</p>
+                            <p><input type="radio" name="category" checked></p>
+                        </div>
+                    </div>
                 </div>
-                <div class="center">
-                    <label for="title">Tasks</label>
-                    <input type="text" id="title" placeholder="Title"><br>
-                    <label for="description">Description</label>
-                    <textarea cols="35" rows="7" id="description" placeholder="Describe Your Task Here"></textarea><br>
-                    <label for="deadline">Due date</label>
-                    <input type="date" id="deadline"><br>
-                    <label for="priority">Priority</label>
-                    <select id="priority">
-                        <option value="Normal">Normal</option>
-                        <option value="Urgent"> Urgent</option>
-                    </select>
+                <div class="task">
+                    <form id="task">
+                        <input type="text" id="title" placeholder="your title">
+                        <button type="submit">Create Task</button>
+                    </form>
+                    <ul class="task-list">
+
+                    </ul>
                 </div>
-                <div class="right">
-                    <button type="submit" id = "submit-button" >Submit</button>
+                <div class="details">
+                    <form id="details">
+                        <textarea id="description" cols="30" rows="10" placeholder="Description"></textarea><br>
+                        <label for="date">Due Date</label><br>
+                        <input type="date" id="date"><br>
+                        <select id="priority">
+                            <option value="normal">Normal</option>
+                            <option value="urgent">Urgent</option>
+                        </select>
+                        &nbsp;<label for="priority">Choose Your Priority</label>
+                    </form>
                 </div>
-            </form>
-            <div class="category-container">
-                <ul class="list-of-category">
-                    <li>
-                        <input type="radio" name="radioValue" value="default" class="radio" checked>
-                        <span>Default Category</span>
-                    </li>
-                </ul>
             </div>
-            
-            <ul class="liste-todo">
-            
-            </ul>
 
         `
     return container

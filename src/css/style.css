@@ -5,126 +5,59 @@
 }
 
 body {
-  background: #333;
-  color: #f1f1f1;
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: aliceblue;
 }
 
-#wrapper{
-  margin-top: 5%;
+.container-fluid {
+  display: grid;
+  grid-template-columns: repeat(3,auto);
+  width: 100%;
+  margin-left: 2%;
 }
 
 h1 {
+  margin: 50px 0 100px;
   text-align: center;
-  font-size: 5vw;
-  margin: 50px 0;
 }
 
-form {
-  display: flex;
-  justify-content: space-around;
-  margin: 0 auto;
-}
-
-form label {
-  display: block;
-  font-size: 25px;
-}
-form input, form select {
-  width: 100%;
-  padding: 15px;
-  font-size: 20px;
-  margin: 10px 0;
-}
-form button {
-  margin-top: 35%;
-  padding: 15px;
-  font-size: 20px;
-}
-
-.left {
-display: flex;
-position: relative;
-}
-
-#category-button{
-  margin-top: 56%;
-}
-
-.list-of-category {
-  width: 100%;
-}
-
-.list-of-category li {
-  cursor: pointer;
-  width: 100%;
+input, select, textarea, button {
   padding: 10px;
-  
+  font-size: 1.3em;
+  margin-bottom: 50px;
+}
+
+#category-list {
+  width: 78%;
+}
+
+.delete-button {
+  background-color: red;
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+ 
+}
+
+.category-list-name {
+  display: flex;
+  justify-content: space-between;
+}
+
+.delete {
+  background-color: red;
+  height: 10%;
+  cursor: pointer;
+}
+
+p {
+  list-style: none;
+  font-size: larger;
+}
+
+label {
+  font-size: larger;
 }
 
 .required::placeholder {
   color: red;
-}
-
-.category-container {
-  display: block;
-  position: absolute;
-  width: 24.5%;
-  border: 1px solid beige;
-  background-color: #efefef;
-  height: 46.5vh;
-  top: 200px;
-  left: 115px;
-}
-
-.radio {
-  width: 15px;
-}
-
-.close-btn {
-  background-color: red;
-}
-
-.liste-todo {
-  list-style-type: none;
-  margin: 20px auto 0;
-  width: 70%;
-  max-width: 1200px;
-  min-width: 400px;
-}
-
-li {
-  font-size: 20px;
-  width: 100%;
-  background: #f1f1f1;
-  display: flex;
-  align-items: center;
-  padding: 5px;
-  color: #333;
-  margin: 5px 0;
-}
-
-li input {
-  width: 40px;
-  height: 40px;
-  margin-left: 15px;
-}
-
-li button {
-  margin-left: auto;
-  padding: 5px;
-}
-
-button img {
-  width: 40px;
-  pointer-events: none;
-}
-
-li span {
-  font-size: 25px;
-  margin-left: 20px;
-}
-/* anim rayure */
-li.finDeTache span {
-  text-decoration: line-through;
 }

@@ -19,14 +19,18 @@ module.exports = {
             },
 
             {
-                test: /\.(png|jpe?g|gif)$/i,
+                test: /\.(png|jpe?g|gif|jpg)$/i,
                 use: [
                     {
                         loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'img/',
+                            publicPath: 'img/'
+                        }
                     },
                 ],
             },
-
         ],
     },
 };
