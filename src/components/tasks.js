@@ -8,14 +8,7 @@ export default class Tasks {
         this.priority = priority;
     }
 
-    create() {
-        const task_object = {
-            category: localStorage.setItem("category", this.category),
-            title: localStorage.setItem("title", this.title),
-            description: localStorage.setItem("description", this.description),
-            date: localStorage.setItem("date", this.date),
-            priority: localStorage.setItem("priority", this.priority)
-        }
+    // categoryTitle(){
 
-    }
+    // }
 }   

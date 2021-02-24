@@ -20,6 +20,12 @@ let category = document.getElementsByTagName('input')[0];
 let categoryList = document.getElementById('category-list');
 let taskBtn = document.getElementsByTagName('button')[1];
 let taskTitle = document.getElementById('title');
+let taskList = document.getElementById('task-list');
+let defaultCategory = document.querySelector('input[name="category"]:checked').value;
+let defaultChoice = document.getElementById('default-choice');
+let theCategory = localStorage.setItem('check', defaultCategory);
+
+
 
 addCategory.addEventListener('click', (e) => {
 
@@ -40,8 +46,7 @@ addCategory.addEventListener('click', (e) => {
     radioBtn.setAttribute('class', 'myRadio');
     radioBtn.setAttribute('type', 'radio');
     radioBtn.setAttribute('name', 'category');
-    radioBtn.setAttribute('value', `${category.value}`);
-    radioBtn.setAttribute('checked', '');
+    radioBtn.setAttribute('value', category.value);
 
     let closeBtn = document.createElement('p');
     closeBtn.className = 'delete-button';
@@ -55,32 +60,56 @@ addCategory.addEventListener('click', (e) => {
     category.value = '';
 
     closeBtn.addEventListener('click', deleteItem);
+
+    defaultChoice.addEventListener('change', () => {
+        theCategory = defaultChoice.value;
+        localStorage.setItem('check', theCategory);
+
+    })
+
+    radioBtn.addEventListener('change', () => {
+        theCategory = radioBtn.value;
+        localStorage.setItem('check', theCategory);
+    })
+
 });
 
 taskBtn.addEventListener('click', (e) => {
-
     e.preventDefault();
 
     if (taskTitle.value === '') {
-        checkInput(taskTitle, 'your title');
+        checkInput(taskTitle, 'category-name');
         return
     }
 
-    let allRadio = document.querySelector('input[name="category"]:checked');
+    let titleArr = [];
 
-    let categoryInput = allRadio.value;
-    let titleInput = taskTitle.value;
-    let descriptionInput = document.getElementById('description').value;
-    let dateInput = document.getElementById('date').value;
-    let priorityInput = document.getElementById('priority').value;
+    const checkedCategory = "default";
+    let chosenCategory = localStorage.getItem('check');
+    let elements = document.createElement('li');
+
+
+    if (chosenCategory === checkedCategory) {
+        titleArr.push(taskTitle.value);
+        localStorage.setItem(checkedCategory, titleArr);
+        elements.setAttribute('class', 'default');
+        elements.innerText = localStorage.getItem(checkedCategory);
+    } else {
+        titleArr.push(taskTitle.value);
+        localStorage.setItem(chosenCategory, titleArr);
+        elements.setAttribute('class', chosenCategory);
+        elements.innerText = localStorage.getItem(chosenCategory);
+    }
 
     taskTitle.value = '';
 
-    let newInstance = new Tasks(categoryInput, titleInput, descriptionInput, dateInput, priorityInput);
-    newInstance.create();
+    taskList.appendChild(elements);
 
-    console.log(newInstance);
-})
+    let elFilter = document.querySelector('.default');
+    elFilter.style.display = "none";
+
+});
+
 
 
 

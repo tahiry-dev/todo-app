@@ -12,7 +12,7 @@ export default function basic() {
                     <div id="category-list">
                         <div class="category-list-name">
                             <p>Default category</p>
-                            <p><input type="radio" name="category" class="myRadio" checked value="default"></p>
+                            <p><input id ="default-choice" type="radio" name="category" class="myRadio" checked value="default"></p>
                         </div>
                     </div>
                 </div>
@@ -21,8 +21,8 @@ export default function basic() {
                         <input type="text" id="title" placeholder="your title">
                         <button type="submit">Create Task</button>
                     </form>
-                    <ul class="task-list">
-
+                    <ul id="task-list">
+                       
                     </ul>
                 </div>
                 <div class="details">
