@@ -2,6 +2,7 @@ import { renderLists, renderListContent, renderActiveList } from './components/r
 import { displayAddBox, removeBox, displayNewListBox, confirmBoxLists, displayEditListBox } from './components/renderPopUpBox';
 import { addNewToDo, addNewList, setActiveList, toggleToDoStatus, removeList, removeToDo, editList } from './components/toDoController';
 
+
 document.body.addEventListener('click', e => {
     let target = e.target.className;
 
@@ -64,3 +65,4 @@ document.body.addEventListener('click', e => {
             break;
     };
 });
+

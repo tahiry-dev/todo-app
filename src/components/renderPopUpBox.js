@@ -13,8 +13,8 @@ export function displayAddBox() {
     boxCtn.appendChild(h1);
 
     const currentActiveList = document.createElement('p');
-    toDoArray.forEach( list => {
-        if(list.active === true) {
+    toDoArray.forEach(list => {
+        if (list.active === true) {
             currentActiveList.textContent = `${list.list} list`;
             boxCtn.appendChild(currentActiveList);
         };
@@ -34,7 +34,7 @@ export function displayAddBox() {
 
     const dateCtn = document.createElement('div');
     dateCtn.classList.add('box-date-ctn');
-    
+
     const dateLabel = document.createElement('label');
     dateLabel.setAttribute('for', 'box-date');
     dateLabel.textContent = 'Due Date';
@@ -55,7 +55,7 @@ export function displayAddBox() {
 
     const prioForm = document.createElement('form');
     priorityCtn.appendChild(prioForm);
-    
+
     const input = document.createElement('input');
     input.setAttribute('type', 'checkbox');
     input.setAttribute('name', 'priority');
@@ -70,7 +70,7 @@ export function displayAddBox() {
     label.textContent = 'Important!';
 
     prioForm.appendChild(label);
-    
+
     const actionCtn = document.createElement('div');
     actionCtn.classList.add('action-ctn');
     actionCtn.style.display = 'flex';
@@ -83,14 +83,14 @@ export function displayAddBox() {
     newBtn.style.opacity = '0.3'
     newBtn.setAttribute('type', 'button');
     newBtn.textContent = 'Add To-Do';
-    
+
     const cancelBtn = document.createElement('button');
     cancelBtn.classList.add('box-cancel-btn');
     cancelBtn.textContent = 'Cancel';
     cancelBtn.style.backgroundColor = 'grey';
 
     title.addEventListener('input', () => {
-        if(title.value !== '') {
+        if (title.value !== '') {
             newBtn.style.pointerEvents = 'auto';
             newBtn.style.opacity = '1';
         } else {
@@ -98,7 +98,7 @@ export function displayAddBox() {
             newBtn.style.opacity = '0.3'
         };
     });
-    
+
     actionCtn.appendChild(newBtn);
     actionCtn.appendChild(cancelBtn);
 
@@ -121,12 +121,12 @@ export function displayNewListBox() {
     const h1 = document.createElement('h1');
     h1.style.marginBottom = '0.5em'
     h1.style.textAlign = 'center';
-    h1.textContent = 'New List';
+    h1.textContent = 'New Category';
 
     const title = document.createElement('input');
     title.setAttribute('id', 'list-name-input');
     title.setAttribute('type', 'text');
-    title.setAttribute('placeholder', 'List name');
+    title.setAttribute('placeholder', 'Category name');
     title.setAttribute('value', '');
     title.setAttribute('autocomplete', 'off');
 
@@ -142,7 +142,7 @@ export function displayNewListBox() {
     notes.setAttribute('value', '');
     notes.setAttribute('autocomplete', 'off');
     notes.style.marginBottom = '2em';
-    
+
     const actionCtn = document.createElement('div');
     actionCtn.classList.add('action-ctn');
     actionCtn.style.display = 'flex';
@@ -154,15 +154,15 @@ export function displayNewListBox() {
     newBtn.style.opacity = '0.3'
     newBtn.classList.add('add-list-btn');
     newBtn.setAttribute('type', 'button');
-    newBtn.textContent = 'Add List';
-    
+    newBtn.textContent = 'Add Category';
+
     const cancelBtn = document.createElement('button');
     cancelBtn.classList.add('box-cancel-btn');
     cancelBtn.textContent = 'Cancel';
     cancelBtn.style.backgroundColor = 'grey';
 
     title.addEventListener('input', () => {
-        if(title.value !== '') {
+        if (title.value !== '') {
             newBtn.style.pointerEvents = 'auto';
             newBtn.style.opacity = '1';
         } else {
@@ -170,7 +170,7 @@ export function displayNewListBox() {
             newBtn.style.opacity = '0.3'
         };
     });
-    
+
     actionCtn.appendChild(newBtn);
     actionCtn.appendChild(cancelBtn);
     boxCtn.appendChild(h1);
@@ -184,7 +184,7 @@ export function displayNewListBox() {
 
 export function displayEditListBox(listInfo) {
     dimBackground();
-    
+
     const boxCtn = document.createElement('form');
     boxCtn.classList.add('new-box-ctn');
     boxCtn.style.height = '20em';
@@ -192,13 +192,13 @@ export function displayEditListBox(listInfo) {
     const h1 = document.createElement('h1');
     h1.style.marginBottom = '0.5em'
     h1.style.textAlign = 'center';
-    h1.textContent = 'Edit list';
+    h1.textContent = 'Edit Category';
 
     const title = document.createElement('input');
     title.setAttribute('id', 'list-name-input');
     title.setAttribute('type', 'text');
     title.setAttribute('placeholder', 'List name');
-    title.setAttribute('value', 
+    title.setAttribute('value',
         listInfo.firstChild.children[0].textContent);
     title.setAttribute('autocomplete', 'off');
 
@@ -211,15 +211,15 @@ export function displayEditListBox(listInfo) {
     notes.setAttribute('id', 'box-notes-input');
     notes.setAttribute('type', 'text');
     notes.setAttribute('placeholder', 'Notes (Optional)');
-    if(listInfo.firstChild.children[1] === undefined) {
+    if (listInfo.firstChild.children[1] === undefined) {
         notes.setAttribute('value', '');
     } else {
-        notes.setAttribute('value', 
+        notes.setAttribute('value',
             listInfo.firstChild.children[1].textContent);
     };
     notes.setAttribute('autocomplete', 'off');
     notes.addEventListener('input', () => {
-        if(title.value !== '') {
+        if (title.value !== '') {
             newBtn.style.pointerEvents = 'auto';
             newBtn.style.opacity = '1';
         } else {
@@ -228,7 +228,7 @@ export function displayEditListBox(listInfo) {
         };
     });
     notes.style.marginBottom = '2em';
-    
+
     const actionCtn = document.createElement('div');
     actionCtn.classList.add('action-ctn');
     actionCtn.style.display = 'flex';
@@ -241,15 +241,15 @@ export function displayEditListBox(listInfo) {
     newBtn.classList.add('edit-list-btn');
     newBtn.setAttribute('type', 'button');
     newBtn.setAttribute('value', listInfo.value)
-    newBtn.textContent = 'Edit list';
-    
+    newBtn.textContent = 'Edit Category';
+
     const cancelBtn = document.createElement('button');
     cancelBtn.classList.add('box-cancel-btn');
     cancelBtn.textContent = 'Cancel';
     cancelBtn.style.backgroundColor = 'grey';
 
     title.addEventListener('input', () => {
-        if(title.value !== '') {
+        if (title.value !== '') {
             newBtn.style.pointerEvents = 'auto';
             newBtn.style.opacity = '1';
         } else {
@@ -257,7 +257,7 @@ export function displayEditListBox(listInfo) {
             newBtn.style.opacity = '0.3'
         };
     });
-    
+
     actionCtn.appendChild(newBtn);
     actionCtn.appendChild(cancelBtn);
     boxCtn.appendChild(h1);
@@ -276,10 +276,10 @@ export function confirmBoxLists(val) {
     boxCtn.classList.add('new-box-ctn');
     boxCtn.setAttribute('id', 'confirm-box');
     const h1 = document.createElement('h1');
-  
+
     h1.style.textAlign = 'center';
     h1.textContent = 'Are you sure you want to remove the list?';
-    
+
     const actionCtn = document.createElement('div');
     actionCtn.classList.add('action-ctn');
 
@@ -289,12 +289,12 @@ export function confirmBoxLists(val) {
     rmvBtn.setAttribute('id', 'remove-btn');
     rmvBtn.setAttribute('value', val.value);
     rmvBtn.textContent = 'Yes';
-    
+
     const cancelBtn = document.createElement('button');
     cancelBtn.classList.add('box-cancel-btn');
     cancelBtn.textContent = 'I want to keep it!';
     cancelBtn.style.backgroundColor = 'grey';
-    
+
     actionCtn.appendChild(rmvBtn);
     actionCtn.appendChild(cancelBtn);
 
@@ -307,6 +307,6 @@ export function confirmBoxLists(val) {
 export function removeBox() {
     const box = document.querySelector('.new-box-ctn');
     box.remove();
-    
+
     lightBackground();
 };

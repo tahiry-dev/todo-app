@@ -26,6 +26,8 @@ export function renderLists() {
         listCtn.setAttribute('type', 'button');
         listsCtn.appendChild(listCtn);
 
+        localStorage.setItem('todos', JSON.stringify(elem));
+
         const listInfoCtn = document.createElement('div');
         listInfoCtn.classList.add('list-info-ctn');
         listCtn.appendChild(listInfoCtn);
