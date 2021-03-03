@@ -2,7 +2,7 @@
 
 import { toDoArray } from './toDoController';
 
-export function renderLists() {
+export const renderLists = () => {
   const listsCtn = document.getElementById('todo-lists');
   listsCtn.style.opacity = '1';
 
@@ -76,7 +76,7 @@ export function renderLists() {
 
 renderLists();
 
-export function renderListContent() {
+export const renderListContent = () => {
   const mainToDoCtn = document.getElementById('main-todo-ctn');
   mainToDoCtn.style.opacity = '1';
 
@@ -156,7 +156,7 @@ export function renderListContent() {
 
 renderListContent();
 
-export function renderActiveList(val, targetList, allLists) {
+export const renderActiveList = (val, targetList, allLists) => {
   const td = document.querySelectorAll('.todo-item');
 
   allLists.childNodes.forEach(list => {

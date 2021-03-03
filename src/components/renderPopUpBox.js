@@ -4,7 +4,7 @@ import { lightBackground, dimBackground } from './displayEffects';
 import { toDoArray } from './toDoController';
 
 
-export function displayAddBox() {
+export const displayAddBox = () => {
   dimBackground();
 
   const boxCtn = document.createElement('form');
@@ -113,7 +113,7 @@ export function displayAddBox() {
   return boxCtn;
 }
 
-export function displayNewListBox() {
+export const displayNewListBox = () => {
   dimBackground();
 
   const boxCtn = document.createElement('form');
@@ -184,7 +184,7 @@ export function displayNewListBox() {
   return boxCtn;
 }
 
-export function displayEditListBox(listInfo) {
+export const displayEditListBox = (listInfo) => {
   dimBackground();
 
   const boxCtn = document.createElement('form');
@@ -273,7 +273,7 @@ export function displayEditListBox(listInfo) {
   return boxCtn;
 }
 
-export function confirmBoxLists(val) {
+export const confirmBoxLists = (val) => {
   dimBackground();
 
   const boxCtn = document.createElement('form');
@@ -308,7 +308,7 @@ export function confirmBoxLists(val) {
   return boxCtn;
 }
 
-export function removeBox() {
+export const removeBox = () => {
   const box = document.querySelector('.new-box-ctn');
   box.remove();
 

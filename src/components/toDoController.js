@@ -13,8 +13,8 @@ const toDoFactory = (toDos,
   notes,
   id,
   active = false) => ({
-  toDos, list, notes, id, active,
-});
+    toDos, list, notes, id, active,
+  });
 
 export const toDoArray = [];
 
@@ -31,12 +31,12 @@ toDoArray.push(toDoFactory([{
   priority: true,
 }], 'Microverse', 'Microverse wants student to create a todo App', '1609618397810', true));
 
-export function getInput(id) {
+export const getInput = (id) => {
   return document.getElementById(id).value;
 }
 
 
-export function addNewToDo() {
+export const addNewToDo = () => {
   let date = '';
 
   if (getInput('box-date') !== '') {
@@ -57,7 +57,6 @@ export function addNewToDo() {
       renderListContent();
       lightBackground();
       removeBox();
-      console.log(toDoArray[i].toDos);
     }
   }
 
@@ -65,7 +64,7 @@ export function addNewToDo() {
 }
 /* eslint-enable no-console */
 
-export function setActiveList(targetListId) {
+export const setActiveList = (targetListId) => {
   toDoArray.forEach(list => {
     list.active = false;
 
@@ -76,7 +75,7 @@ export function setActiveList(targetListId) {
 }
 
 
-export function addNewList() {
+export const addNewList = () => {
   setActiveList();
   /* eslint-disable no-restricted-globals */
   toDoArray.push(toDoFactory([''].splice(0, length),
@@ -89,7 +88,7 @@ export function addNewList() {
 }
 
 
-export function removeList(val) {
+export const removeList = (val) => {
   toDoArray.forEach((list, index) => {
     if (list.id === val.value) {
       toDoArray.splice(index, 1);
@@ -104,7 +103,7 @@ export function removeList(val) {
   });
 }
 
-export function editList(val, listInfo) {
+export const editList = (val, listInfo) => {
   toDoArray.forEach((list) => {
     if (list.id === val.value) {
       list.list = listInfo.children[1].value;
@@ -117,7 +116,7 @@ export function editList(val, listInfo) {
   });
 }
 
-export function toggleToDoStatus(val, name) {
+export const toggleToDoStatus = (val, name) => {
   toDoArray.forEach(td => {
     for (let i = 0; i < td.toDos.length; i += 1) {
       if (td.toDos[i].title === name && td.id === val) {
@@ -131,7 +130,7 @@ export function toggleToDoStatus(val, name) {
   });
 }
 
-export function removeToDo(val) {
+export const removeToDo = (val) => {
   toDoArray.forEach(list => {
     if (list.id === val.firstChild.getAttribute('value')) {
       list.toDos.forEach((todo, index) => {

@@ -34,7 +34,6 @@ document.body.addEventListener('click', e => {
       break;
     case 'trash-svg-lists':
       document.body.appendChild(confirmBoxLists(e.target.parentElement.parentElement));
-      console.log(e.target.parentElement.parentElement);
       break;
     case 'remove-list-btn':
       removeList(e.target);
