@@ -282,7 +282,7 @@ export function confirmBoxLists(val) {
   const h1 = document.createElement('h1');
 
   h1.style.textAlign = 'center';
-  h1.textContent = 'Are you sure you want to remove the list?';
+  h1.textContent = 'Are you sure you want to remove this category?';
 
   const actionCtn = document.createElement('div');
   actionCtn.classList.add('action-ctn');
