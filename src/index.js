@@ -4,7 +4,7 @@ import {
   displayAddBox, removeBox, displayNewListBox, confirmBoxLists, displayEditListBox,
 } from './components/renderPopUpBox';
 import {
-  addNewToDo, addNewList, setActiveList, toggleToDoStatus, removeList, removeToDo, editList, toDoArray,
+  addNewToDo, addNewList, setActiveList, toggleToDoStatus, removeList, removeToDo, editList,
 } from './components/toDoController';
 
 

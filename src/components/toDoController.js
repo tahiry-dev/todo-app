@@ -8,13 +8,13 @@ const toDoFactory = (toDos,
   list,
   notes,
   id,
-  active = false) => {
-  return ({
-    toDos, list, notes, id, active,
-  });
-};
+  active = false) => ({
+  toDos, list, notes, id, active,
+});
 
+/* eslint-disable import/no-mutable-exports */
 export let toDoArray = [];
+/* eslint-enable import/no-mutable-exports */
 
 toDoArray.push(toDoFactory([{
   title: 'Create the functionality and the front end part',
@@ -29,11 +29,9 @@ toDoArray.push(toDoFactory([{
   priority: true,
 }], 'Microverse', 'Microverse wants student to create a todo App', '1609618397810', true));
 
-export const getInput = (id) => {
-  return document.getElementById(id).value;
-}
+export const getInput = (id) => document.getElementById(id).value;
 
-toDoArray = JSON.parse(localStorage.getItem("toDoArray") || "[]");
+toDoArray = JSON.parse(localStorage.getItem('toDoArray') || '[]');
 
 
 export const addNewToDo = () => {
@@ -56,9 +54,9 @@ export const addNewToDo = () => {
       removeBox();
     }
   }
-  localStorage.setItem("toDoArray", JSON.stringify(toDoArray));
+  localStorage.setItem('toDoArray', JSON.stringify(toDoArray));
   date = '';
-}
+};
 /* eslint-enable no-console */
 
 export const setActiveList = (targetListId) => {
@@ -69,8 +67,8 @@ export const setActiveList = (targetListId) => {
       list.active = true;
     }
   });
-  localStorage.setItem("toDoArray", JSON.stringify(toDoArray));
-}
+  localStorage.setItem('toDoArray', JSON.stringify(toDoArray));
+};
 
 export const addNewList = () => {
   setActiveList();
@@ -81,9 +79,9 @@ export const addNewList = () => {
     Date.now().toString(),
     true));
   removeBox();
-  localStorage.setItem("toDoArray", JSON.stringify(toDoArray));
+  localStorage.setItem('toDoArray', JSON.stringify(toDoArray));
   /* eslint-enable no-restricted-globals */
-}
+};
 
 
 export const removeList = (val) => {
@@ -98,8 +96,8 @@ export const removeList = (val) => {
       removeBox();
     }
   });
-  localStorage.setItem("toDoArray", JSON.stringify(toDoArray));
-}
+  localStorage.setItem('toDoArray', JSON.stringify(toDoArray));
+};
 
 export const editList = (val, listInfo) => {
   toDoArray.forEach((list) => {
@@ -110,8 +108,8 @@ export const editList = (val, listInfo) => {
       removeBox();
     }
   });
-  localStorage.setItem("toDoArray", JSON.stringify(toDoArray));
-}
+  localStorage.setItem('toDoArray', JSON.stringify(toDoArray));
+};
 
 export const toggleToDoStatus = (val, name) => {
   toDoArray.forEach(td => {
@@ -125,8 +123,8 @@ export const toggleToDoStatus = (val, name) => {
       }
     }
   });
-  localStorage.setItem("toDoArray", JSON.stringify(toDoArray));
-}
+  localStorage.setItem('toDoArray', JSON.stringify(toDoArray));
+};
 
 export const removeToDo = (val) => {
   toDoArray.forEach(list => {
@@ -139,7 +137,6 @@ export const removeToDo = (val) => {
       });
     }
   });
-  localStorage.setItem("toDoArray", JSON.stringify(toDoArray));
-}
+  localStorage.setItem('toDoArray', JSON.stringify(toDoArray));
+};
 /* eslint-enable import/no-cycle */
-

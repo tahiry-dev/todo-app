@@ -2916,12 +2916,12 @@ __webpack_require__.r(__webpack_exports__);
 const dimBackground = () => {
   const bgDim = document.querySelector('.bg-focus');
   bgDim.style.display = 'block';
-}
+};
 
 const lightBackground = () => {
   const bgLight = document.querySelector('.bg-focus');
   bgLight.style.display = 'none';
-}
+};
 
 
 /***/ }),
@@ -3016,7 +3016,7 @@ const renderLists = () => {
       }
     }
   });
-}
+};
 
 renderLists();
 
@@ -3096,7 +3096,7 @@ const renderListContent = () => {
       todoInfoCtn.appendChild(trashSvg);
     });
   });
-}
+};
 
 renderListContent();
 
@@ -3118,7 +3118,7 @@ const renderActiveList = (val, targetList, allLists) => {
       i.style.display = 'none';
     }
   });
-}
+};
 
 /* eslint-enable import/no-cycle */
 
@@ -3253,10 +3253,10 @@ const displayAddBox = () => {
   boxCtn.appendChild(actionCtn);
 
   return boxCtn;
-}
+};
 
 const displayNewListBox = () => {
-  ;(0,_displayEffects__WEBPACK_IMPORTED_MODULE_0__.dimBackground)();
+  (0,_displayEffects__WEBPACK_IMPORTED_MODULE_0__.dimBackground)();
 
   const boxCtn = document.createElement('form');
   boxCtn.classList.add('new-box-ctn');
@@ -3324,10 +3324,10 @@ const displayNewListBox = () => {
   boxCtn.appendChild(actionCtn);
 
   return boxCtn;
-}
+};
 
 const displayEditListBox = (listInfo) => {
-  ;(0,_displayEffects__WEBPACK_IMPORTED_MODULE_0__.dimBackground)();
+  (0,_displayEffects__WEBPACK_IMPORTED_MODULE_0__.dimBackground)();
 
   const boxCtn = document.createElement('form');
   boxCtn.classList.add('new-box-ctn');
@@ -3413,10 +3413,10 @@ const displayEditListBox = (listInfo) => {
   boxCtn.appendChild(actionCtn);
 
   return boxCtn;
-}
+};
 
 const confirmBoxLists = (val) => {
-  ;(0,_displayEffects__WEBPACK_IMPORTED_MODULE_0__.dimBackground)();
+  (0,_displayEffects__WEBPACK_IMPORTED_MODULE_0__.dimBackground)();
 
   const boxCtn = document.createElement('form');
   boxCtn.classList.add('new-box-ctn');
@@ -3448,14 +3448,14 @@ const confirmBoxLists = (val) => {
   boxCtn.appendChild(actionCtn);
 
   return boxCtn;
-}
+};
 
 const removeBox = () => {
   const box = document.querySelector('.new-box-ctn');
   box.remove();
 
   (0,_displayEffects__WEBPACK_IMPORTED_MODULE_0__.lightBackground)();
-}
+};
 /* eslint-enable import/no-cycle */
 
 /***/ }),
@@ -3492,13 +3492,13 @@ const toDoFactory = (toDos,
   list,
   notes,
   id,
-  active = false) => {
-  return ({
+  active = false) => ({
     toDos, list, notes, id, active,
   });
-};
 
+/* eslint-disable import/no-mutable-exports */
 let toDoArray = [];
+/* eslint-enable import/no-mutable-exports */
 
 toDoArray.push(toDoFactory([{
   title: 'Create the functionality and the front end part',
@@ -3513,11 +3513,9 @@ toDoArray.push(toDoFactory([{
   priority: true,
 }], 'Microverse', 'Microverse wants student to create a todo App', '1609618397810', true));
 
-const getInput = (id) => {
-  return document.getElementById(id).value;
-}
+const getInput = (id) => document.getElementById(id).value;
 
-toDoArray = JSON.parse(localStorage.getItem("toDoArray") || "[]");
+toDoArray = JSON.parse(localStorage.getItem('toDoArray') || '[]');
 
 
 const addNewToDo = () => {
@@ -3540,9 +3538,9 @@ const addNewToDo = () => {
       (0,_renderPopUpBox__WEBPACK_IMPORTED_MODULE_2__.removeBox)();
     }
   }
-  localStorage.setItem("toDoArray", JSON.stringify(toDoArray));
+  localStorage.setItem('toDoArray', JSON.stringify(toDoArray));
   date = '';
-}
+};
 /* eslint-enable no-console */
 
 const setActiveList = (targetListId) => {
@@ -3553,8 +3551,8 @@ const setActiveList = (targetListId) => {
       list.active = true;
     }
   });
-  localStorage.setItem("toDoArray", JSON.stringify(toDoArray));
-}
+  localStorage.setItem('toDoArray', JSON.stringify(toDoArray));
+};
 
 const addNewList = () => {
   setActiveList();
@@ -3565,9 +3563,9 @@ const addNewList = () => {
     Date.now().toString(),
     true));
   (0,_renderPopUpBox__WEBPACK_IMPORTED_MODULE_2__.removeBox)();
-  localStorage.setItem("toDoArray", JSON.stringify(toDoArray));
+  localStorage.setItem('toDoArray', JSON.stringify(toDoArray));
   /* eslint-enable no-restricted-globals */
-}
+};
 
 
 const removeList = (val) => {
@@ -3582,8 +3580,8 @@ const removeList = (val) => {
       (0,_renderPopUpBox__WEBPACK_IMPORTED_MODULE_2__.removeBox)();
     }
   });
-  localStorage.setItem("toDoArray", JSON.stringify(toDoArray));
-}
+  localStorage.setItem('toDoArray', JSON.stringify(toDoArray));
+};
 
 const editList = (val, listInfo) => {
   toDoArray.forEach((list) => {
@@ -3594,8 +3592,8 @@ const editList = (val, listInfo) => {
       (0,_renderPopUpBox__WEBPACK_IMPORTED_MODULE_2__.removeBox)();
     }
   });
-  localStorage.setItem("toDoArray", JSON.stringify(toDoArray));
-}
+  localStorage.setItem('toDoArray', JSON.stringify(toDoArray));
+};
 
 const toggleToDoStatus = (val, name) => {
   toDoArray.forEach(td => {
@@ -3609,8 +3607,8 @@ const toggleToDoStatus = (val, name) => {
       }
     }
   });
-  localStorage.setItem("toDoArray", JSON.stringify(toDoArray));
-}
+  localStorage.setItem('toDoArray', JSON.stringify(toDoArray));
+};
 
 const removeToDo = (val) => {
   toDoArray.forEach(list => {
@@ -3623,10 +3621,9 @@ const removeToDo = (val) => {
       });
     }
   });
-  localStorage.setItem("toDoArray", JSON.stringify(toDoArray));
-}
+  localStorage.setItem('toDoArray', JSON.stringify(toDoArray));
+};
 /* eslint-enable import/no-cycle */
-
 
 
 /***/ })

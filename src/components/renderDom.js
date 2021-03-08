@@ -75,7 +75,7 @@ export const renderLists = () => {
       }
     }
   });
-}
+};
 
 renderLists();
 
@@ -155,7 +155,7 @@ export const renderListContent = () => {
       todoInfoCtn.appendChild(trashSvg);
     });
   });
-}
+};
 
 renderListContent();
 
@@ -177,6 +177,6 @@ export const renderActiveList = (val, targetList, allLists) => {
       i.style.display = 'none';
     }
   });
-}
+};
 
 /* eslint-enable import/no-cycle */

@@ -111,7 +111,7 @@ export const displayAddBox = () => {
   boxCtn.appendChild(actionCtn);
 
   return boxCtn;
-}
+};
 
 export const displayNewListBox = () => {
   dimBackground();
@@ -182,7 +182,7 @@ export const displayNewListBox = () => {
   boxCtn.appendChild(actionCtn);
 
   return boxCtn;
-}
+};
 
 export const displayEditListBox = (listInfo) => {
   dimBackground();
@@ -271,7 +271,7 @@ export const displayEditListBox = (listInfo) => {
   boxCtn.appendChild(actionCtn);
 
   return boxCtn;
-}
+};
 
 export const confirmBoxLists = (val) => {
   dimBackground();
@@ -306,12 +306,12 @@ export const confirmBoxLists = (val) => {
   boxCtn.appendChild(actionCtn);
 
   return boxCtn;
-}
+};
 
 export const removeBox = () => {
   const box = document.querySelector('.new-box-ctn');
   box.remove();
 
   lightBackground();
-}
+};
 /* eslint-enable import/no-cycle */
