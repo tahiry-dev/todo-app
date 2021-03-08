@@ -2,22 +2,43 @@
   "name": "todo",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "webpack.config.js",
   "scripts": {
-    "dev": "webpack --mode development",
+    "dev": "webpack --mode development --watch",
     "build": "webpack --mode production",
-    "start": "webpack serve --mode development --open"
+    "start": "webpack serve --mode development --open",
+    "deploy": "gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tahiry-dev/todo-app.git"
   },
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tahiry-dev/todo-app/issues"
+  },
+  "homepage": "https://github.com/tahiry-dev/todo-app#readme",
   "devDependencies": {
+    "babel-eslint": "10.1.x",
     "css-loader": "^5.0.2",
+    "eslint": "6.8.x",
+    "eslint-config-airbnb-base": "14.1.x",
+    "eslint-plugin-import": "2.20.x",
     "file-loader": "^6.2.0",
+    "gh-pages": "^3.1.0",
+    "html-loader": "^2.1.0",
     "style-loader": "^2.0.0",
+    "stylelint": "13.3.x",
+    "stylelint-config-standard": "20.0.x",
+    "stylelint-csstree-validator": "^1.9.0",
+    "stylelint-scss": "3.17.x",
     "webpack": "^5.21.2",
     "webpack-cli": "^4.5.0"
   },
   "dependencies": {
-    "bootstrap": "^4.6.0"
+    "date-fns": "^2.18.0",
+    "lodash": "^4.17.21",
+    "pump": "^3.0.0"
   }
 }

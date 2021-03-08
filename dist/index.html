@@ -5,12 +5,48 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
     <title>To-do App</title>
 </head>
 
 <body>
-    <div id="wrapper">
+    <div class="bg-focus"></div>
 
+    <header>
+        <div class="logo">
+            <h1>To-Do APP</h1>
+    </header>
+
+    <div id="main-ctn">
+        <div class="list-folders-ctn">
+            <div class="lists-add-ctn">
+                <h1>Categories</h1>
+                <button class="lists-add-btn" type="button">
+                    <div class="add-svg-lists"></div>
+                </button>
+            </div>
+            <div id="todo-lists"></div>
+        </div>
+
+        <div class="todo-card-ctn">
+
+            <div class="todo-add-ctn">
+                <h1>To-Do's</h1>
+                <button class="add-btn" type="button">
+                    <div class="add-svg"></div>
+                </button>
+            </div>
+
+            <div class="todo-border"></div>
+
+            <ul id="main-todo-ctn">
+            </ul>
+
+        </div>
     </div>
 
     <script src="main.js"></script>
