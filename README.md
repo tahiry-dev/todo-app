@@ -4,7 +4,7 @@
 
 > Classify your 'todo list' under your preferred category.
 
-![screenshot](./app_screenshot.png)
+![screenshot](https://user-images.githubusercontent.com/47100064/109796777-a2b1d980-7c29-11eb-900a-a9f5228f3db5.png)
 
 user can choose to create a category or use the default one to classify their tasks
 
@@ -16,7 +16,7 @@ user can choose to create a category or use the default one to classify their ta
 
 ## Live Demo
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link](http://www.tahiry.live/todo-app/)
 
 
 ## Getting Started
