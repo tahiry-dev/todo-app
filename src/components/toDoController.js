@@ -1,22 +1,20 @@
 /* eslint-disable import/no-cycle */
 import { format } from 'date-fns';
 import { lightBackground } from './displayEffects';
-
-
 import { renderLists, renderListContent } from './renderDom';
-
 import { removeBox } from './renderPopUpBox';
-
 
 const toDoFactory = (toDos,
   list,
   notes,
   id,
-  active = false) => ({
+  active = false) => {
+  return ({
     toDos, list, notes, id, active,
   });
+};
 
-export const toDoArray = [];
+export let toDoArray = [];
 
 toDoArray.push(toDoFactory([{
   title: 'Create the functionality and the front end part',
@@ -35,16 +33,15 @@ export const getInput = (id) => {
   return document.getElementById(id).value;
 }
 
+toDoArray = JSON.parse(localStorage.getItem("toDoArray") || "[]");
+
 
 export const addNewToDo = () => {
   let date = '';
-
   if (getInput('box-date') !== '') {
     date = format(new Date(getInput('box-date')), 'dd/MM/yyyy');
   }
-
   /* eslint-disable no-console */
-
   for (let i = 0; i < toDoArray.length; i += 1) {
     if (toDoArray[i].active === true) {
       toDoArray[i].toDos
@@ -59,7 +56,7 @@ export const addNewToDo = () => {
       removeBox();
     }
   }
-
+  localStorage.setItem("toDoArray", JSON.stringify(toDoArray));
   date = '';
 }
 /* eslint-enable no-console */
@@ -72,8 +69,8 @@ export const setActiveList = (targetListId) => {
       list.active = true;
     }
   });
+  localStorage.setItem("toDoArray", JSON.stringify(toDoArray));
 }
-
 
 export const addNewList = () => {
   setActiveList();
@@ -84,6 +81,7 @@ export const addNewList = () => {
     Date.now().toString(),
     true));
   removeBox();
+  localStorage.setItem("toDoArray", JSON.stringify(toDoArray));
   /* eslint-enable no-restricted-globals */
 }
 
@@ -95,25 +93,24 @@ export const removeList = (val) => {
       if (toDoArray.length !== 0) {
         toDoArray[0].active = true;
       }
-
       renderLists();
       renderListContent();
       removeBox();
     }
   });
+  localStorage.setItem("toDoArray", JSON.stringify(toDoArray));
 }
 
 export const editList = (val, listInfo) => {
   toDoArray.forEach((list) => {
     if (list.id === val.value) {
       list.list = listInfo.children[1].value;
-
       list.notes = listInfo.children[3].value;
-
       renderLists();
       removeBox();
     }
   });
+  localStorage.setItem("toDoArray", JSON.stringify(toDoArray));
 }
 
 export const toggleToDoStatus = (val, name) => {
@@ -128,6 +125,7 @@ export const toggleToDoStatus = (val, name) => {
       }
     }
   });
+  localStorage.setItem("toDoArray", JSON.stringify(toDoArray));
 }
 
 export const removeToDo = (val) => {
@@ -141,5 +139,7 @@ export const removeToDo = (val) => {
       });
     }
   });
+  localStorage.setItem("toDoArray", JSON.stringify(toDoArray));
 }
 /* eslint-enable import/no-cycle */
+

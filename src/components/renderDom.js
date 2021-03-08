@@ -10,6 +10,7 @@ export const renderLists = () => {
     listsCtn.removeChild(listsCtn.firstChild);
   }
 
+
   if (toDoArray.length === 0) {
     const emptyGuide = document.createElement('p');
     emptyGuide.style.textAlign = 'center';
@@ -20,14 +21,12 @@ export const renderLists = () => {
     listsCtn.appendChild(emptyGuide);
   }
 
-  toDoArray.forEach(elem => {
+  toDoArray.forEach((elem) => {
     const listCtn = document.createElement('button');
     listCtn.classList.add('lists-tab-link');
     listCtn.setAttribute('value', elem.id);
     listCtn.setAttribute('type', 'button');
     listsCtn.appendChild(listCtn);
-
-    localStorage.setItem('todos', JSON.stringify(elem));
 
     const listInfoCtn = document.createElement('div');
     listInfoCtn.classList.add('list-info-ctn');
@@ -38,13 +37,16 @@ export const renderLists = () => {
     list.textContent = elem.list;
     listInfoCtn.appendChild(list);
 
+
     const notes = document.createElement('p');
     notes.style.textAlign = 'left';
     notes.classList.add('notes-item');
     notes.textContent = elem.notes;
+
     if (elem.notes !== '') {
       listInfoCtn.appendChild(notes);
     }
+
 
     const editCtn = document.createElement('div');
     editCtn.style.display = 'none';
@@ -60,6 +62,7 @@ export const renderLists = () => {
     editCtn.appendChild(editSvg);
     editCtn.appendChild(trashSvg);
   });
+
 
   const listbtn = document.querySelectorAll('.lists-tab-link');
   listbtn.forEach(btn => {

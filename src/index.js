@@ -1,10 +1,12 @@
+
 import { renderLists, renderListContent, renderActiveList } from './components/renderDom';
 import {
   displayAddBox, removeBox, displayNewListBox, confirmBoxLists, displayEditListBox,
 } from './components/renderPopUpBox';
 import {
-  addNewToDo, addNewList, setActiveList, toggleToDoStatus, removeList, removeToDo, editList,
+  addNewToDo, addNewList, setActiveList, toggleToDoStatus, removeList, removeToDo, editList, toDoArray,
 } from './components/toDoController';
+
 
 /* eslint-disable no-console */
 /* eslint-disable default-case */
@@ -61,6 +63,7 @@ document.body.addEventListener('click', e => {
       break;
     case 'edit-svg-lists':
       document.body.appendChild(displayEditListBox(e.target.parentElement.parentElement));
+
       break;
     case 'edit-list-btn':
       editList(e.target,
@@ -68,5 +71,6 @@ document.body.addEventListener('click', e => {
       break;
   }
 });
+
 /* eslint-enable no-console */
 /* eslint-enable default-case */

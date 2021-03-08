@@ -3,7 +3,6 @@ import { lightBackground, dimBackground } from './displayEffects';
 
 import { toDoArray } from './toDoController';
 
-
 export const displayAddBox = () => {
   dimBackground();
 
@@ -15,6 +14,7 @@ export const displayAddBox = () => {
   boxCtn.appendChild(h1);
 
   const currentActiveList = document.createElement('p');
+
   toDoArray.forEach(list => {
     if (list.active === true) {
       currentActiveList.textContent = `${list.list} list`;
