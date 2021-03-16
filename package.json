@@ -7,7 +7,8 @@
     "dev": "webpack --mode development --watch",
     "build": "webpack --mode production",
     "start": "webpack serve --mode development --open",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,8 @@
   },
   "homepage": "https://github.com/tahiry-dev/todo-app#readme",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
     "babel-eslint": "10.1.x",
     "css-loader": "^5.0.2",
     "eslint": "6.8.x",
@@ -37,6 +40,7 @@
     "webpack-cli": "^4.5.0"
   },
   "dependencies": {
+    "babel-jest": "^26.6.3",
     "date-fns": "^2.18.0",
     "lodash": "^4.17.21",
     "pump": "^3.0.0"
