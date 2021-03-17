@@ -3060,11 +3060,6 @@ const renderListContent = () => {
       todo.setAttribute('value', list.id);
       todo.textContent = td.title;
 
-      console.log(todo);
-      console.log(list.id);
-      console.log(_toDoController__WEBPACK_IMPORTED_MODULE_0__.toDoArray);
-
-
       if (td.done === true) {
         todo.style.textDecoration = 'line-through';
         toDoCtn.style.opacity = '0.3';
