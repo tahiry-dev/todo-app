@@ -2978,7 +2978,6 @@ const renderLists = () => {
     list.textContent = elem.list;
     listInfoCtn.appendChild(list);
 
-
     const notes = document.createElement('p');
     notes.style.textAlign = 'left';
     notes.classList.add('notes-item');
@@ -3060,6 +3059,11 @@ const renderListContent = () => {
       todo.classList.add('todo-item');
       todo.setAttribute('value', list.id);
       todo.textContent = td.title;
+
+      console.log(todo);
+      console.log(list.id);
+      console.log(_toDoController__WEBPACK_IMPORTED_MODULE_0__.toDoArray);
+
 
       if (td.done === true) {
         todo.style.textDecoration = 'line-through';

@@ -1,5 +1,7 @@
-test('Should return undefined', () => {
-    let toDoArray = [];
+test('Should return Shopping', () => {
+
+    let toDoArray = ['Shopping'];
+
     const renderLists = () => {
         const listsCtn = document.createElement('div');
         listsCtn.setAttribute('id', 'todo-lists');
@@ -36,6 +38,7 @@ test('Should return undefined', () => {
             list.textContent = elem.list;
             listInfoCtn.appendChild(list);
 
+            expect(list).toEqual("<h1 class='list-item'>Shopping</h1>");
 
             const notes = document.createElement('p');
             notes.style.textAlign = 'left';
@@ -75,5 +78,104 @@ test('Should return undefined', () => {
             }
         });
     };
-    expect(renderLists()).toBeUndefined();
 })
+
+test('should return buy computer', () => {
+    const toDoArray = [
+        {
+            active: true,
+            id: "1615984821080",
+            list: "Shopping",
+            notes: "",
+            toDos: [
+                {
+                    done: false,
+                    dueDate: "",
+                    priority: false,
+                    title: "Buy Computer"
+                }
+            ]
+        }
+    ]
+    const renderListContent = () => {
+        const mainToDoCtn = document.getElementById('main-todo-ctn');
+        mainToDoCtn.style.opacity = '1';
+
+        while (mainToDoCtn.firstChild) {
+            mainToDoCtn.removeChild(mainToDoCtn.firstChild);
+        }
+
+        const addToDoBtn = document.querySelector('.add-btn');
+        addToDoBtn.style.pointerEvents = 'auto';
+        addToDoBtn.style.backgroundColor = '';
+
+        if (toDoArray.length === 0) {
+            const emptyMsg = document.createElement('h3');
+            emptyMsg.style.textAlign = 'center';
+            emptyMsg.textContent = 'Empty here... :(';
+
+            const emptyGuide = document.createElement('p');
+            emptyGuide.style.textAlign = 'center';
+            emptyGuide.textContent = 'Make a list to add a To-Do.';
+
+            addToDoBtn.style.pointerEvents = 'none';
+            addToDoBtn.style.backgroundColor = 'rgb(196, 196, 196)';
+
+            mainToDoCtn.style.opacity = '0.3';
+
+            mainToDoCtn.appendChild(emptyMsg);
+            mainToDoCtn.appendChild(emptyGuide);
+        }
+
+        toDoArray.forEach(list => {
+            list.toDos.forEach(td => {
+                const toDoCtn = document.createElement('div');
+                toDoCtn.classList.add('todo-ctn');
+                mainToDoCtn.appendChild(toDoCtn);
+
+                const todo = document.createElement('label');
+                todo.classList.add('todo-item');
+                todo.setAttribute('value', list.id);
+                todo.textContent = td.title;
+
+                expect(todo).toEqual("<label class='todo-item' value='1615984821080'>Buy Computer</label>")
+
+                if (td.done === true) {
+                    todo.style.textDecoration = 'line-through';
+                    toDoCtn.style.opacity = '0.3';
+                }
+                toDoCtn.appendChild(todo);
+
+                if (list.id === todo.getAttribute('value')
+                    && list.active === true) {
+                    toDoCtn.style.display = 'flex';
+                } else {
+                    return;
+                }
+
+                const todoInfoCtn = document.createElement('div');
+                todoInfoCtn.classList.add('todo-info-ctn');
+                toDoCtn.appendChild(todoInfoCtn);
+
+                const date = document.createElement('label');
+                date.textContent = td.dueDate;
+                todoInfoCtn.appendChild(date);
+
+                const priority = document.createElement('label');
+                priority.classList.add('prio-indicator');
+                if (td.priority === true) {
+                    priority.textContent = '!';
+                }
+                todoInfoCtn.appendChild(priority);
+
+                const trashSvg = document.createElement('div');
+                trashSvg.classList.add('trash-svg-todos');
+                trashSvg.style.margin = '0em';
+
+                todoInfoCtn.appendChild(trashSvg);
+            });
+        });
+    };
+})
+
+
