@@ -9,8 +9,8 @@ const toDoFactory = (toDos,
   notes,
   id,
   active = false) => ({
-    toDos, list, notes, id, active,
-  });
+  toDos, list, notes, id, active,
+});
 
 /* eslint-disable import/no-mutable-exports */
 export let toDoArray = [];
