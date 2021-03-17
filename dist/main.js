@@ -3517,7 +3517,6 @@ const getInput = (id) => document.getElementById(id).value;
 
 toDoArray = JSON.parse(localStorage.getItem('toDoArray') || '[]');
 
-
 const addNewToDo = () => {
   let date = '';
   if (getInput('box-date') !== '') {
@@ -3546,7 +3545,6 @@ const addNewToDo = () => {
 const setActiveList = (targetListId) => {
   toDoArray.forEach(list => {
     list.active = false;
-
     if (list.id === targetListId) {
       list.active = true;
     }

@@ -9,8 +9,8 @@ const toDoFactory = (toDos,
   notes,
   id,
   active = false) => ({
-  toDos, list, notes, id, active,
-});
+    toDos, list, notes, id, active,
+  });
 
 /* eslint-disable import/no-mutable-exports */
 export let toDoArray = [];
@@ -32,7 +32,6 @@ toDoArray.push(toDoFactory([{
 export const getInput = (id) => document.getElementById(id).value;
 
 toDoArray = JSON.parse(localStorage.getItem('toDoArray') || '[]');
-
 
 export const addNewToDo = () => {
   let date = '';
@@ -62,7 +61,6 @@ export const addNewToDo = () => {
 export const setActiveList = (targetListId) => {
   toDoArray.forEach(list => {
     list.active = false;
-
     if (list.id === targetListId) {
       list.active = true;
     }
