@@ -2978,7 +2978,6 @@ const renderLists = () => {
     list.textContent = elem.list;
     listInfoCtn.appendChild(list);
 
-
     const notes = document.createElement('p');
     notes.style.textAlign = 'left';
     notes.classList.add('notes-item');
@@ -3517,7 +3516,6 @@ const getInput = (id) => document.getElementById(id).value;
 
 toDoArray = JSON.parse(localStorage.getItem('toDoArray') || '[]');
 
-
 const addNewToDo = () => {
   let date = '';
   if (getInput('box-date') !== '') {
@@ -3546,7 +3544,6 @@ const addNewToDo = () => {
 const setActiveList = (targetListId) => {
   toDoArray.forEach(list => {
     list.active = false;
-
     if (list.id === targetListId) {
       list.active = true;
     }

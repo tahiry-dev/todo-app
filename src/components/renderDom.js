@@ -37,7 +37,6 @@ export const renderLists = () => {
     list.textContent = elem.list;
     listInfoCtn.appendChild(list);
 
-
     const notes = document.createElement('p');
     notes.style.textAlign = 'left';
     notes.classList.add('notes-item');

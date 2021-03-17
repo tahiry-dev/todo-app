@@ -1,4 +1,5 @@
 /* eslint-disable import/no-cycle */
+/* eslint-disable no-unused-vars */
 import { lightBackground, dimBackground } from './displayEffects';
 
 import { toDoArray } from './toDoController';
@@ -315,3 +316,4 @@ export const removeBox = () => {
   lightBackground();
 };
 /* eslint-enable import/no-cycle */
+/* eslint-enable no-unused-vars */
